@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Explore residential projects, farmhouses and interiors by Samasthiti Constructions in Indore.">
+<title>Our Projects | Samasthiti Constructions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#b99a78;--ink:#101010;--body:#242424;--cream:#f3f0ec;--white:#fff;--footer:#292929;--line:#e5dfd8}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',Arial,sans-serif;color:var(--body);background:#fff;overflow-x:hidden}
+.home-nav{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:18px 5.2%;background:#fff;border-bottom:1px solid #e8e3dd;position:sticky;top:0;z-index:100;min-height:96px}
+.home-nav .logo-wrap{display:flex;align-items:center;flex:0 0 auto}
+.home-nav .brand{display:block}
+.home-nav .brand-logo-header{display:block;width:142px;height:62px;object-fit:contain}
+.home-nav .nav-links{display:flex;align-items:center;gap:clamp(18px,3vw,38px);list-style:none;margin:0;padding:0}
+.home-nav .nav-links a{text-decoration:none;color:var(--body);font-size:13.5px;font-weight:500;letter-spacing:.2px;transition:color .2s}
+.home-nav .nav-links a:hover,.home-nav .nav-links a[aria-current="page"]{color:var(--gold)}
+.home-nav .nav-phone{width:40px;height:40px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;color:#fff;flex:0 0 40px;text-decoration:none}
+.home-nav .nav-phone svg{width:18px;height:18px}
+.home-nav .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:0;padding:4px}
+.home-nav .hamburger span{width:24px;height:2px;background:#222;border-radius:2px;display:block}
+.mobile-menu{position:fixed;inset:0;background:rgba(0,0,0,.48);z-index:200;display:none}
+.mobile-menu.open{display:block}
+.menu-panel{background:#fff;width:min(340px,82vw);height:100%;padding:28px 30px;display:flex;flex-direction:column;box-shadow:10px 0 30px rgba(0,0,0,.12)}
+.menu-close{align-self:flex-end;border:0;background:none;font-size:30px;cursor:pointer;margin-bottom:22px;color:#111}
+.menu-panel a{padding:17px 0;border-bottom:1px solid #e9e3dc;text-decoration:none;color:#171717;font-size:16px}
+.hero{min-height:330px;position:relative;display:flex;align-items:center;overflow:hidden;background:#e9e9e9}
+.hero::before{content:"";position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=90');background-size:cover;background-position:center 55%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(248,248,248,.98) 0%,rgba(248,248,248,.91) 34%,rgba(248,248,248,.22) 65%,rgba(248,248,248,.02) 100%)}
+.hero-copy{position:relative;z-index:1;padding:54px 5.2%;max-width:620px}
+.gold-rule{width:64px;height:3px;background:var(--gold);margin-bottom:24px}
+.hero h1{font-family:'Playfair Display',Georgia,serif;font-size:clamp(46px,5vw,66px);line-height:1.05;font-weight:600;color:#050505;margin-bottom:15px}
+.hero-copy p{font-size:clamp(16px,1.5vw,20px);line-height:1.5;max-width:450px;color:#171717}
+.projects-section{padding:54px 5.2% 72px;background:#fff}
+.section-intro{max-width:1180px;margin:0 auto 28px;display:flex;align-items:end;justify-content:space-between;gap:24px}
+.section-intro p{font-size:14px;line-height:1.65;color:#777;max-width:440px}
+.project-grid{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.project-card{border:1px solid #dedede;border-radius:13px;overflow:hidden;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,.025);transition:transform .25s ease,box-shadow .25s ease}
+.project-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(0,0,0,.09)}
+.project-image{display:block;overflow:hidden;aspect-ratio:1.72/1;background:#e8e2da}
+.project-image img{width:100%;height:100%;display:block;object-fit:cover;transition:transform .5s ease}
+.project-card:hover .project-image img{transform:scale(1.04)}
+.project-info{padding:17px 20px 18px}
+.project-title-row{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px}
+.project-title-row h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(18px,1.65vw,23px);line-height:1.2;color:#080808;font-weight:600}
+.project-type{background:#eee0ce;color:#30271e;border-radius:6px;padding:6px 10px;font-size:11px;white-space:nowrap;margin-top:1px}
+.project-location{display:flex;align-items:center;gap:7px;color:#555;font-size:13px;margin-bottom:14px}
+.project-location svg{width:17px;height:17px;stroke:#171717;fill:none;stroke-width:1.8;flex-shrink:0}
+.project-link{display:inline-flex;align-items:center;gap:14px;color:#101010;font-size:13px;font-weight:700;text-decoration:none;border-bottom:1px solid #c7aa88;padding-bottom:4px}
+.project-link span{font-size:21px;line-height:12px;transition:transform .2s}
+.project-link:hover span{transform:translateX(4px)}
+.cta{min-height:205px;display:grid;grid-template-columns:36% 1fr;background:#353535;color:#fff}
+.cta-image{min-height:205px;background:url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1000&q=85') center/cover}
+.cta-content{display:flex;align-items:center;justify-content:space-between;gap:35px;padding:30px clamp(28px,5vw,78px)}
+.cta-copy h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(28px,3vw,40px);line-height:1.08;margin-bottom:9px;font-weight:600}
+.cta-copy p{font-size:15px;color:#e0e0e0;line-height:1.5;max-width:390px}
+.cta-button{display:inline-flex;align-items:center;justify-content:center;gap:14px;background:#d6b58d;color:#111;text-decoration:none;padding:15px 25px;border-radius:8px;font-weight:700;font-size:14px;white-space:nowrap;transition:background .2s}
+.cta-button:hover{background:#e4c7a3}
+footer{background:var(--footer);color:#f4f4f4;text-align:center;padding:15px 8% 20px}
+.footer-brand{display:flex;flex-direction:column;align-items:center}
+.footer-logo{width:280px;height:74px;object-fit:contain;filter:grayscale(1) brightness(0) invert(1)}
+.footer-tagline{letter-spacing:6px;font-size:13px;margin:0 0 18px;color:#f3f3f3}
+.footer-tagline::before,.footer-tagline::after{content:"";display:inline-block;width:78px;height:1px;background:#ddd;vertical-align:middle;margin:0 26px}
+.footer-links{display:flex;justify-content:center;align-items:center;gap:0;margin:0 auto 18px}
+.footer-links a{color:#f4f4f4;text-decoration:none;font-size:17px;padding:0 38px;border-right:1px solid #bdbdbd}
+.footer-links a:last-child{border-right:0}
+.socials{display:flex;justify-content:center;gap:44px;margin-bottom:12px}
+.socials a{width:45px;height:45px;border:1px solid #8b8b8b;border-radius:50%;display:grid;place-items:center;color:#fff;text-decoration:none}
+.socials svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.copyright{border-top:1px solid #8a8a8a;padding-top:13px;font-size:15px;color:#eee}
+@media(max-width:1050px){.home-nav{padding:16px 28px}.home-nav .nav-links{gap:17px}.home-nav .nav-links a{font-size:12px}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:768px){
+ .home-nav{padding:14px 20px;min-height:82px}.home-nav .nav-links{display:none}.home-nav .hamburger{display:flex}.home-nav .brand-logo-header{width:124px;height:54px}.home-nav .nav-phone{width:38px;height:38px}
+ .hero{min-height:300px;align-items:flex-start}.hero::before{background-position:62% center}.hero::after{background:linear-gradient(90deg,rgba(248,248,248,.97),rgba(248,248,248,.83) 58%,rgba(248,248,248,.22))}.hero-copy{padding:52px 24px 42px;max-width:410px}.hero h1{font-size:44px}.hero-copy p{font-size:17px;max-width:330px}
+ .projects-section{padding:34px 20px 48px}.section-intro{display:block;margin-bottom:20px}.section-intro p{font-size:13px}.project-grid{grid-template-columns:1fr;gap:17px;max-width:560px}.project-image{aspect-ratio:1.72/1}.project-info{padding:12px 16px 15px}.project-title-row h2{font-size:21px}
+ .cta{grid-template-columns:1fr}.cta-image{min-height:155px}.cta-content{padding:25px 24px 28px;align-items:flex-start;flex-direction:column;gap:20px}.cta-copy h2{font-size:32px}.cta-copy p{font-size:14px}.cta-button{padding:13px 20px}
+ footer{padding:22px 18px 18px}.footer-logo{width:220px;height:62px}.footer-tagline{font-size:10px;letter-spacing:4px}.footer-tagline::before,.footer-tagline::after{width:28px;margin:0 10px}.footer-links{flex-wrap:wrap;gap:13px 0}.footer-links a{font-size:13px;padding:0 13px}.socials{gap:28px;margin:18px 0}.socials a{width:40px;height:40px}.copyright{font-size:12px;line-height:1.5}
+}
+@media(min-width:769px) and (max-width:1150px){.project-grid{gap:18px}.project-info{padding:14px}.project-title-row{flex-wrap:wrap}}
+@media(max-width:380px){.hero h1{font-size:39px}.project-title-row{align-items:flex-start}.project-title-row h2{font-size:19px}.project-type{font-size:10px;padding:5px 8px}}
+
+@media (min-width:769px) and (max-width:900px){
+  .home-nav{gap:14px;padding-left:22px;padding-right:22px}
+  .home-nav .nav-links{display:none}
+  .home-nav .hamburger{display:flex}
+}
+
+</style>
+</head>
+<body>
+
+<nav class="home-nav">
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <div class="logo-wrap">
+    <a class="brand" href="index.html" aria-label="Samasthiti Constructions home"><img class="brand-logo-header" src="data:image/webp;base64,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" alt="Samasthiti Constructions"></a>
+  </div>
+  <ul class="nav-links">
+    <li><a href="about-us.html">About Us</a></li>
+	<li><a href="our-projects.html" aria-current="page">Our Projects</a></li>
+    <li><a href="our-services.html">Our Services</a></li>
+	<li><a href="index.html#clients">Our Clients</a></li>
+    <li><a href="index.html#process">Our Process</a></li>
+    <li><a href="index.html#contact">Contact Us</a></li>
+  </ul>
+  <a class="nav-phone" href="index.html#contact" aria-label="Contact us">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 11.5 19.79 19.79 0 0 1 1.61 2.84 2 2 0 0 1 3.59 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.56a16 16 0 0 0 6.29 6.29l1.42-1.42a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+</nav>
+<div class="mobile-menu" id="mobileMenu" onclick="if(event.target===this)toggleMenu()">
+  <nav class="menu-panel" aria-label="Mobile navigation">
+    <button class="menu-close" aria-label="Close navigation" onclick="toggleMenu()">×</button>
+    <a href="index.html">Home</a>
+    <a href="about-us.html">About Us</a>
+	<a href="our-projects.html" aria-current="page">Our Projects</a>
+    <a href="our-services.html">Our Services</a>
+    <a href="index.html#clients">Our Clients</a>
+    <a href="index.html#process">Our Process</a>
+    <a href="index.html#contact">Contact Us</a>
+  </nav>
+</div>
+
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <div class="gold-rule"></div>
+    <h1>Our Projects</h1>
+    <p>A glimpse of the homes we’ve designed and built with trust, quality and attention to detail.</p>
+  </div>
+</section>
+<section class="projects-section" aria-label="Our projects">
+  <div class="section-intro">
+    <p>Thoughtfully planned spaces, crafted with care. Explore a selection of our residential, farmhouse and interior projects.</p>
+  </div>
+  <div class="project-grid">
+    <article class="project-card">
+      <a class="project-image" href="index.html#contact" aria-label="Enquire about Coral Reef Residence">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1100&q=85" alt="Coral Reef Residence by Samasthiti Constructions" loading="lazy">
+      </a>
+      <div class="project-info">
+        <div class="project-title-row"><h2>Coral Reef Residence</h2><span class="project-type">Residential</span></div>
+        <p class="project-location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Vijay Nagar, Indore</p>
+        <a class="project-link" href="index.html#contact">View Project <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+<article class="project-card">
+      <a class="project-image" href="index.html#contact" aria-label="Enquire about Uplands Residence">
+        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=85" alt="Uplands Residence by Samasthiti Constructions" loading="lazy">
+      </a>
+      <div class="project-info">
+        <div class="project-title-row"><h2>Uplands Residence</h2><span class="project-type">Residential</span></div>
+        <p class="project-location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Bypass Road, Indore</p>
+        <a class="project-link" href="index.html#contact">View Project <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+<article class="project-card">
+      <a class="project-image" href="index.html#contact" aria-label="Enquire about Lakeside Bungalow">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1100&q=85" alt="Lakeside Bungalow by Samasthiti Constructions" loading="lazy">
+      </a>
+      <div class="project-info">
+        <div class="project-title-row"><h2>Lakeside Bungalow</h2><span class="project-type">Residential</span></div>
+        <p class="project-location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Super Corridor, Indore</p>
+        <a class="project-link" href="index.html#contact">View Project <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+<article class="project-card">
+      <a class="project-image" href="index.html#contact" aria-label="Enquire about Green Valley Farmhouse">
+        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=1100&q=85" alt="Green Valley Farmhouse by Samasthiti Constructions" loading="lazy">
+      </a>
+      <div class="project-info">
+        <div class="project-title-row"><h2>Green Valley Farmhouse</h2><span class="project-type">Farmhouse</span></div>
+        <p class="project-location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Hatod, Indore</p>
+        <a class="project-link" href="index.html#contact">View Project <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+<article class="project-card">
+      <a class="project-image" href="index.html#contact" aria-label="Enquire about Silver Crest">
+        <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?auto=format&fit=crop&w=1100&q=85" alt="Silver Crest by Samasthiti Constructions" loading="lazy">
+      </a>
+      <div class="project-info">
+        <div class="project-title-row"><h2>Silver Crest</h2><span class="project-type">Residential</span></div>
+        <p class="project-location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Bicholi Mardana, Indore</p>
+        <a class="project-link" href="index.html#contact">View Project <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+<article class="project-card">
+      <a class="project-image" href="index.html#contact" aria-label="Enquire about Cityview Interiors">
+        <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1100&q=85" alt="Cityview Interiors by Samasthiti Constructions" loading="lazy">
+      </a>
+      <div class="project-info">
+        <div class="project-title-row"><h2>Cityview Interiors</h2><span class="project-type">Interiors</span></div>
+        <p class="project-location"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>Vijay Nagar, Indore</p>
+        <a class="project-link" href="index.html#contact">View Project <span aria-hidden="true">→</span></a>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="cta">
+  <div class="cta-image" role="img" aria-label="Beautiful landscaped home exterior"></div>
+  <div class="cta-content">
+    <div class="cta-copy">
+      <h2>Planning Your<br>Dream Home?</h2>
+      <p>Explore our work and get inspired for your own space.</p>
+    </div>
+    <a class="cta-button" href="index.html#contact">Get in Touch <span aria-hidden="true">→</span></a>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="footer-brand">
+    <img class="footer-logo" src="data:image/webp;base64,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" alt="Samasthiti Constructions">
+    <div class="footer-tagline">JUST TRANSPARENCY</div>
+  </div>
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="about-us.html">About Us</a>
+	<a href="our-projects.html" aria-current="page">Our Projects</a>
+    <a href="our-services.html">Our Services</a>
+	<a href="index.html#clients">Our Clients</a>
+    <a href="index.html#process">Our Process</a>
+    <a href="index.html#contact">Contact Us</a>
+  </nav>
+  <div class="socials">
+    <a href="https://www.instagram.com/samasthiticonstructions/?hl=en" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://wa.me/" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M20 11.5a8.3 8.3 0 0 1-12.3 7.3L4 20l1.2-3.5A8.3 8.3 0 1 1 20 11.5z"/><path d="M9 8.5c.4 2.8 2 4.5 4.8 5.5l1.4-1.4 2 1c-.3 1.5-1.2 2.2-2.7 2.1-3.9-.5-6.8-3.5-7.2-7.2-.1-1.2.6-2.1 1.8-2.4z"/></svg></a>
+    <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/></svg></a>
+  </div>
+  <div class="copyright">© 2026 Samasthiti Constructions. All Rights Reserved.</div>
+</footer>
+<script>
+function toggleMenu(){
+  const menu=document.getElementById('mobileMenu');
+  const button=document.querySelector('.home-nav .hamburger');
+  const isOpen=menu.classList.toggle('open');
+  button.setAttribute('aria-expanded',String(isOpen));
+  document.body.style.overflow=isOpen?'hidden':'';
+}
+document.querySelectorAll('.menu-panel a').forEach(link=>link.addEventListener('click',()=>{
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow='';
+  document.querySelector('.home-nav .hamburger').setAttribute('aria-expanded','false');
+}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow='';document.querySelector('.home-nav .hamburger').setAttribute('aria-expanded','false');}});
+</script>
+</body>
+</html>
